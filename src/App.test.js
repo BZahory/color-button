@@ -4,45 +4,45 @@ import App, {replaceCamelWithSpaces} from './App';
 test('should have initial color', () => {
   render(<App/>);
 
-  //find an element with the role button and text "change to blue"
-  const colorButton = screen.getByRole('button', {name: "change to blue"});
+  //find an element with the role button and text "change to MidnightBlue"
+  const colorButton = screen.getByRole('button', {name: "change to MidnightBlue"});
 
-  //expect the background to be red
-  expect(colorButton).toHaveStyle({backgroundColor: 'red'})
+  //expect the background to be MediumVioletRed
+  expect(colorButton).toHaveStyle({backgroundColor: 'MediumVioletRed'})
 })
 
 test('should have initial text', () => {
   render(<App/>);
 
-  //find an element with the role button and text "change to blue"
-  const colorButton = screen.getByRole('button', {name: "change to blue"});
+  //find an element with the role button and text "change to MidnightBlue"
+  const colorButton = screen.getByRole('button', {name: "change to MidnightBlue"});
 
-  //expect the text to be "change to blue"
-  expect(colorButton).toHaveTextContent("change to blue");
+  //expect the text to be "change to MidnightBlue"
+  expect(colorButton).toHaveTextContent("change to MidnightBlue");
 })
 
-test('should turn blue when clicked', () => {
+test('should turn MidnightBlue when clicked', () => {
   render(<App />);
   
-  const colorButton = screen.getByRole('button', {name:"change to blue"});
+  const colorButton = screen.getByRole('button', {name:"change to MidnightBlue"});
 
-  //expect button to be red
-  expect(colorButton).toHaveStyle({backgroundColor:'red'});
+  //expect button to be MediumVioletRed
+  expect(colorButton).toHaveStyle({backgroundColor:'MediumVioletRed'});
 
   fireEvent.click(colorButton);
 
-  //expect button to be blue
-  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
+  //expect button to be MidnightBlue
+  expect(colorButton).toHaveStyle({backgroundColor: 'MidnightBlue'});
 
-  //expect text to be "change to red"
-  expect(colorButton.textContent).toBe("change to red");
+  //expect text to be "change to MediumVioletRed"
+  expect(colorButton.textContent).toBe("change to MediumVioletRed");
 })
 
 test('should have button start enabled and box unchecked', () => {
   render(<App/>);
 
   //check that button starts out enabled
-  const colorButton = screen.getByRole('button', {name:"change to blue"})
+  const colorButton = screen.getByRole('button', {name:"change to MidnightBlue"})
   expect(colorButton).toBeEnabled();
 
   //check that checkbox starts out unchecked
@@ -59,7 +59,7 @@ test('should disable button when checked', () => {
   expect(checkbox).not.toBeChecked();
 
   //check that button is enabled
-  const button = screen.getByRole('button', {name:"change to blue"})
+  const button = screen.getByRole('button', {name:"change to MidnightBlue"})
   expect(button).toBeEnabled();
 
   fireEvent.click(checkbox);
@@ -79,7 +79,7 @@ test('should disable button when checked', () => {
 test('should be gray when disabled and return to the old color when enabled', () => {
   render(<App />);
 
-  const button = screen.getByRole('button', {name:"change to blue"});
+  const button = screen.getByRole('button', {name:"change to MidnightBlue"});
   expect(button).toBeEnabled();
 
   const checkbox = screen.getByRole('checkbox', {name:"disable button"});
@@ -90,18 +90,18 @@ test('should be gray when disabled and return to the old color when enabled', ()
   expect(checkbox).toBeChecked();
   expect(button).toHaveStyle({backgroundColor:"gray"});
 
-  //enable button, expect red button
+  //enable button, expect MediumVioletRed button
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({backgroundColor:"red"});
+  expect(button).toHaveStyle({backgroundColor:"MediumVioletRed"});
 
   //click button, then disable button, expect gray button
   fireEvent.click(button);
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({backgroundColor:"gray"});
 
-  //enable button, expect blue button
+  //enable button, expect MidnightBlue button
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({backgroundColor: "blue"});
+  expect(button).toHaveStyle({backgroundColor: "MidnightBlue"});
 
 
 })
