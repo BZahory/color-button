@@ -65,7 +65,14 @@ test('should disable button when checked', () => {
   fireEvent.click(checkbox);
 
   //expect button and box to toggle
-  expect(button).toBeDefined();
+  expect(button).toBeDisabled();
   expect(checkbox).toBeChecked();
+  
+  fireEvent.click(checkbox);
+
+  //expect button and box to toggle
+  expect(button).toBeEnabled();
+  expect(checkbox).not.toBeChecked();
+
 })
 
