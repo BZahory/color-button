@@ -2,6 +2,12 @@ import React, {useState} from "react";
 import logo from './logo.svg';
 import './App.css';
 
+export function replaceCamelWithSpaces(colorName){
+  if(!colorName.length>0)
+    return colorName;
+  return colorName[0] + colorName.substring(1).replace(/([A-Z])/g, " $1");
+}
+
 function App() {
   const [color, setColor] = useState('red');
   const [checked, setChecked] = useState(false);
